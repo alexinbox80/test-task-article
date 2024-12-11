@@ -1,0 +1,37 @@
+{% extends 'app/index.html.twig' %}
+
+{% block body %}
+    <h3>Теперь осталось сделать тестовое задание :)</h3>
+
+    <div class="example-wrapper">
+        <h1>Show Article! ✅</h1>
+
+        <ul>
+            <li>
+                <span>ID: </span> {{ article['id'] }}
+            </li>
+            <li>
+                <span>Active: </span> {{ (article['isActive'] == 1) ? 'true' : 'false' }}
+            </li>
+            <li>
+                <span>Title: </span> {{ article['title'] }}
+            </li>
+            <li>
+                <span>Description: </span> {{ article['description'] }}
+            </li>
+            <li>
+                <span>Read count: </span> {{ article['readCount'] }}
+            </li>
+            <li>
+                <span>Prefix Read count: </span> {{ article['prefixReadCount'] }}
+            </li>
+            <li>
+                <span>Created at: </span> {{ article['createdAt'] }}
+            </li>
+        </ul>
+    </div>
+
+    <div class="back">
+        <a href="{{ path('app_articles') }}">Back to list</a>
+    </div>
+{% endblock %}

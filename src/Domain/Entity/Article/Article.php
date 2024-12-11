@@ -88,4 +88,39 @@ class Article
     {
         $this->createdAt = $createdAt;
     }
+
+    public function convertReadCount(): string
+    {
+        $prefix_K = 1024;
+        $prefix_M = 1024 * 1024;
+        $prefix_G = 1024 * 1024 * 1024;
+        $answer = '';
+
+        $readCount = $this->getReadCount();
+        if ($readCount > $prefix_K  && $readCount <= $prefix_M) {
+            $readCount /= $prefix_K ;
+
+            $answer = (int) $readCount . 'K';
+        } elseif ($readCount > $prefix_M && $readCount <= $prefix_G) {
+            $readCount /= $prefix_M;
+
+            $answer = (int) $readCount . 'M';
+        } else
+            $answer = (string)$readCount;
+
+        return $answer;
+    }
+
+    public function toArray(): array
+    {
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'description' => $this->description,
+            'isActive' => $this->isActive,
+            'prefixReadCount' => $this->convertReadCount(),
+            'readCount' => $this->readCount,
+            'createdAt' => $this->createdAt->format('Y-m-d H:i:s')
+        ];
+    }
 }

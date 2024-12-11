@@ -35,7 +35,7 @@ final class ArticleFactory extends PersistentProxyObjectFactory
             'createdAt' => self::faker()->dateTime(),
             'isActive' => self::faker()->boolean(),
             'readCount' => self::faker()->randomNumber(),
-            'title' => self::faker()->text(128),
+            'title' => self::faker()->words(3, true),
             'description' => self::faker()->text(255),
         ];
     }

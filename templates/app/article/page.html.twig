@@ -1,0 +1,19 @@
+{% extends 'app/index.html.twig' %}
+
+{% block body %}
+    <h3>Теперь осталось сделать тестовое задание :)</h3>
+
+    <div class="example-wrapper">
+        <h1>Hello Article! ✅</h1>
+
+        <ul>
+            {% for article in articles %}
+                <li>
+                    {{ article.id }}
+                    <a href="{{ path('app_show_article', {'id': article.id}) }}">{{ article.title }}</a>
+                    Read Count: {{ article.prefixReadCount }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
