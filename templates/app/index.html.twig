@@ -11,7 +11,12 @@
     {% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}
 </head>
 <body>
-<header></header>
+<header>
+    <h1>Тестовое задание ТМК</h1>
+    <div class="">
+        <a href="{{ path('app_articles') }}">to articles list</a>
+    </div>
+</header>
 {% block body %}
 {% endblock %}
 </body>

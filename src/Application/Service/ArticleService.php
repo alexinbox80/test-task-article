@@ -40,9 +40,9 @@ class ArticleService
 
     /**
      * @param int $id
-     * @return Article
+     * @return array
      */
-    public function getArticle(int $id): Article
+    public function getArticle(int $id): array
     {
         $em = $this->entityManager;
         $articleRepository = $em->getRepository(Article::class);
@@ -53,6 +53,6 @@ class ArticleService
         $em->persist($article);
         $em->flush();
 
-        return $article;
+        return $article->toArray();
     }
 }

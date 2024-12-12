@@ -13,6 +13,6 @@ class FrontpageController extends AbstractController
 {
     public function __invoke(): Response
     {
-        return $this->render('app/page/frontpage/page.html.twig');
+        return $this->render('app/index.html.twig');
     }
 }
