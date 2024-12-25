@@ -34,11 +34,6 @@ class Article
         return $this->id;
     }
 
-    public function setId(?int $id): void
-    {
-        $this->id = $id;
-    }
-
     public function isActive(): bool
     {
         return $this->isActive;
@@ -91,9 +86,9 @@ class Article
 
     public function convertReadCount(): string
     {
-        $prefix_K = 1024;
-        $prefix_M = 1024 * 1024;
-        $prefix_G = 1024 * 1024 * 1024;
+        $prefix_K = 1000;
+        $prefix_M = 1000 * 1000;
+        $prefix_G = 1000 * 1000 * 1000;
         $answer = '';
 
         $readCount = $this->getReadCount();
